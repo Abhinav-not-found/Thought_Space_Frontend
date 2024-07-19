@@ -91,7 +91,7 @@
           }}
           ></div>
           }
-          {profile ? <div className='h-auto w-24 bg-white absolute right-14 top-14 rounded-lg p-2 border border-black flex flex-col justify-center gap-2'>
+          {profile ? <div className='z-10 h-auto w-24 bg-white absolute right-14 top-14 rounded-lg p-2 border border-black flex flex-col justify-center gap-2'>
             <button onClick={()=>navigate('/settings')}>Settings</button>
             <button onClick={handleLogout} className='bg-black text-white h-fit w-full rounded p-1'>Logout</button>
           </div> : <></>}

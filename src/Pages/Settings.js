@@ -11,6 +11,7 @@ const Settings = () => {
     const [uploadedImageUrl, setUploadedImageUrl] = useState(profileIcon);
     const [userData,setUserData]=useState('')
     const [username,setUsername]=useState('')
+    const [feedbackChange,setFeedbackChange]=useState('')
     // Fetch the existing image link when the component mounts
     useEffect(() => {
         const fetchImage = async () => {
@@ -93,6 +94,36 @@ const Settings = () => {
         }
     };
 
+    const handleFeedbackTextChange =(event)=>{
+        setFeedbackChange(event.target.value)
+        // console.log(feedbackChange)
+    }
+    const handleFeedback=async()=>{
+        try {
+            const data = {feedback : feedbackChange}
+            const response = await axios.post('https://thought-space-backend.onrender.com/setting/feedback',data)
+            // console.log(feedbackChange)
+            if(response.status===200){
+                alert('Feedback Sent Successfully')
+                console.log('Feedback Sent Successfully')
+            }
+            else{
+                alert('Something Went Wrong')
+                console.log('Something Went Wrong')
+            }
+        } catch (error) {
+            console.error('Error sending feedback:', error);
+            if (error.response) {
+                console.error('Response data:', error.response.data);
+                console.error('Response status:', error.response.status);
+                console.error('Response headers:', error.response.headers);
+            } else if (error.request) {
+                console.error('Request made but no response received:', error.request);
+            } else {
+                console.error('Error setting up the request:', error.message);
+            }
+        }
+    }
     return (
         <div className='flex'>
             <div className='w-1/4 h-[90vh] flex flex-col px-2 pr-4 py-2 gap-3 border-r-2 border-black'>
@@ -150,13 +181,13 @@ const Settings = () => {
                 }
                 {activePage === 2 && <div>This is page 2</div>}
                 {activePage === 3 && 
-                <div class="bg-gray-100 rounded-lg p-8 shadow-md">
-                    <h1 class="text-2xl font-bold mb-4">Feedback Form</h1>
-                    <p class="text-gray-700 leading-relaxed">
+                <div className="bg-gray-100 rounded-lg p-8 shadow-md">
+                    <h1 className="text-2xl font-bold mb-4">Feedback Form</h1>
+                    <p className="text-gray-700 leading-relaxed">
                         This form is designed for providing constructive feedback to help improve our services. Whether you've encountered bugs, issues, or have valuable suggestions for enhancements, your input is highly appreciated. Please take a moment to fill out this form.
                     </p>
-                    <textarea type="text" className='w-full h-[250px] rounded-md outline-none p-2 my-6 resize-none' /><br/>
-                    <button className='border border-black p-2 px-3 rounded-md'>Submit</button>
+                    <textarea type="text" value={feedbackChange} required onChange={handleFeedbackTextChange} className='w-full h-[250px] rounded-md outline-none p-2 my-6 resize-none' /><br/>
+                    <button onClick={handleFeedback}  className='border border-black p-2 px-3 rounded-md'>Submit</button>
                 </div>
             
             }

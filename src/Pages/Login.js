@@ -38,7 +38,7 @@ const Login = () => {
           <input type="text" className='text-xl border border-black rounded p-2 mb-4 w-full' onChange={handleEmailChange} value={email}/>
           <p className='text-2xl'>Password</p>
           <input type="text" className='text-xl border border-black rounded p-2 mb-4 w-full' onChange={handlePasswordChange} value={password}/><br/>
-          <button className='border border-black p-2 rounded-lg mt-3 mb-5 ml-40 text-xl' onClick={handleLogin}>Login</button>
+          <button className='border border-black p-2 bg-black text-white rounded-lg mt-3 mb-5 ml-40 text-xl' onClick={handleLogin}>Login</button>
           <p className='text-center text-xl'>Don't have an account? <Link to='/register' className='underline'>Register</Link> here</p>
       </div>
 </div>

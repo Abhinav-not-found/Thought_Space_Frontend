@@ -98,8 +98,8 @@ const Settings = () => {
             <div className='w-1/4 h-[90vh] flex flex-col px-2 pr-4 py-2 gap-3 border-r-2 border-black'>
                 <button onClick={() => setActivePage(1)} className='rounded py-1 text-start px-3 border-black border'>Profile</button>
                 <button onClick={() => setActivePage(2)} className='rounded py-1 text-start px-3 border-black border'>Saved Blog</button>
-                {/* <button onClick={() => setActivePage(3)} className='rounded py-1 text-start px-3 border-black border'>3</button>
-                <button onClick={() => setActivePage(4)} className='rounded py-1 text-start px-3 border-black border'>4</button> */}
+                <button onClick={() => setActivePage(3)} className='rounded py-1 text-start px-3 border-black border'>Feedback</button>
+                {/* <button onClick={() => setActivePage(4)} className='rounded py-1 text-start px-3 border-black border'>4</button> */}
             </div>
             <div className='w-3/4 p-4 relative'>
                 {activePage === 1 &&
@@ -149,8 +149,18 @@ const Settings = () => {
                     </div>
                 }
                 {activePage === 2 && <div>This is page 2</div>}
-                {/* {activePage === 3 && <div>This is page 3</div>}
-                {activePage === 4 && <div>This is page 4</div>} */}
+                {activePage === 3 && 
+                <div class="bg-gray-100 rounded-lg p-8 shadow-md">
+                    <h1 class="text-2xl font-bold mb-4">Feedback Form</h1>
+                    <p class="text-gray-700 leading-relaxed">
+                        This form is designed for providing constructive feedback to help improve our services. Whether you've encountered bugs, issues, or have valuable suggestions for enhancements, your input is highly appreciated. Please take a moment to fill out this form.
+                    </p>
+                    <textarea type="text" className='w-full h-[250px] rounded-md outline-none p-2 my-6 resize-none' /><br/>
+                    <button className='border border-black p-2 px-3 rounded-md'>Submit</button>
+                </div>
+            
+            }
+                {/* {activePage === 4 && <div>This is page 4</div>} */}
             </div>
         </div>
     );

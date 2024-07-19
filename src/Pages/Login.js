@@ -11,6 +11,7 @@ const Login = () => {
   const handlePasswordChange=(event)=>{
     setPassword(event.target.value)
   }
+  
   const handleLogin = async()=>{
     try {
       const data = {email,password}
@@ -22,6 +23,11 @@ const Login = () => {
         localStorage.setItem('username',username)
         alert('Login Successfull')
         navigate('/')
+        console.log('Setting reload timeout...');
+        setTimeout(() => {
+          console.log('Reloading window...'); 
+          window.location.reload();
+        }, 2000);
       }
       else{
         console.log('Something Went Wrong',response.status)

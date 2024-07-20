@@ -69,14 +69,14 @@
 
 
           {/* search bar */}
-        <div className='border border-black p-1 px-2 pr-10 rounded-md relative'>
+        {/* <div className='border border-black p-1 px-2 pr-10 rounded-md relative'>
           <i className="fa-solid fa-magnifying-glass"></i>
           <input type="text" className='outline-none ml-3' onFocus={handleFocus} onBlur={handleBlur} ref={searchInputRef} />
           {appear? <p className='absolute top-1 right-2 opacity-30 bg-slate-300 px-2 rounded-md'>CTRL K</p> : 
           <p className='hidden absolute top-1 right-2 opacity-30 bg-slate-300 px-2 rounded-md'>CTRL K</p>
           }
           
-        </div>
+        </div> */}
 
 
         <div className='flex gap-5'>

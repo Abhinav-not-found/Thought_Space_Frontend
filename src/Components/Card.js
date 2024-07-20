@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import FailedImage from '../Assets/Images/failedImage.png';
+import { Link } from 'react-router-dom';
 
-const Card = ({ onClick, title, desc, image, username }) => {
+const Card = ({ onClick, title, desc, image, username,date }) => {
   const backgroundImage = image ? `url('${image}')` : `url('${FailedImage}')`;
   const [isSaved, setIsSaved] = useState(false);
   const [isHeart, setIsHeart] = useState(false);
@@ -27,9 +28,15 @@ const Card = ({ onClick, title, desc, image, username }) => {
     return tmp.textContent || tmp.innerText || '';
   };
 
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    const options = { day: '2-digit', month: 'long' };
+    return date.toLocaleDateString('en-GB', options);
+  };
   return (
     <div className='flex border-black border justify-between p-4 rounded-lg items-start mb-3'>
       <div>
+        <p className='text-sm'>{formatDate(date)}</p>
         <h1 onClick={onClick} className='text-3xl cursor-pointer mb-1 font-medium whitespace-nowrap text-ellipsis'>
           {title}
         </h1>
@@ -53,7 +60,7 @@ const Card = ({ onClick, title, desc, image, username }) => {
               )}
             </button>
           </div>
-          <p>@{username}</p>
+          <Link to='/profile' >@{username}</Link>
         </div>
       </div>
       <div

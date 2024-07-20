@@ -48,6 +48,7 @@ const Home = () => {
                     return (
                         <Card 
                             key={blog._id}
+                            date={blog.createdAt}
                             title={truncateTitle(blog.title)}
                             desc={truncateDesc(blog.desc)}
                             image={blog.image}

@@ -100,6 +100,9 @@ const Blog = () => {
           </form>
         ) : (
           <>
+          <div className='flex w-full justify-center my-6 '>
+              <img src={blog.image} className='h-auto w-3/5' alt="image" /><br />
+            </div>
             <h1 className='text-5xl font-bold text-center w-full'>{blog.title}</h1><br />
             <div className='flex gap-4 w-full px-40 mt-4'>
               <p className='text-xl'>@{blog.username}</p>
@@ -121,10 +124,8 @@ const Blog = () => {
               }
             </div>
 
-            <div className='flex w-full justify-center my-6 '>
-              <img src={blog.image} className='h-auto w-2/5' alt="image" /><br />
-            </div>
-            <div className='text-2xl px-40 mt-5' dangerouslySetInnerHTML={{ __html: blog.desc }} />
+            
+            <div className='text-2xl px-40 mt-5 mb-40' dangerouslySetInnerHTML={{ __html: blog.desc }} />
           </>
         )}
       </div>
